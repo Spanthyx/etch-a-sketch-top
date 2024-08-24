@@ -1,5 +1,6 @@
 let container = document.querySelector("#container");
 let btn = document.querySelector("#grid-btn");
+let interactionCount = 0;
 
 document.addEventListener('DOMContentLoaded',() => {
     drawGrid(16);
@@ -11,8 +12,11 @@ btn.addEventListener("click", () => {
     if (!Number.isNaN(gridSize) && gridSize > 0 && gridSize <= 100) {
         let toDelete = document.querySelectorAll(".row");
         toDelete.forEach((element) => element.remove());
+        interactionCount = 0;
         drawGrid(gridSize);
-      }
+    } else {
+        alert("Write a Number between 1 and 100!");
+    }
 })
 
 
@@ -27,6 +31,9 @@ function drawGrid(squareNumber) {
             square.setAttribute("style", "flex: 1;");
             square.setAttribute("class", "square");
             square.addEventListener("mouseenter", () => {
+                if (interactionCount < 10) {
+                    square.style.opacity = `${(++interactionCount * 10)}%`;
+                }
                 square.style.backgroundColor = `rgb(${getRandomRGBvalue()}, ${getRandomRGBvalue()}, ${getRandomRGBvalue()})`;
               });
             row.appendChild(square);
