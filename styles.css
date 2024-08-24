@@ -2,16 +2,31 @@ body {
     background-color: black;
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    gap: 50px;
 }
 
 #container {
     display: flex;
     background-color: white;
-    width: 800px;
-    height: 800px;
+    width: 750px;
+    height: 750px;
     flex-direction: column;
     align-items: stretch;
+}
+
+#grid-btn {
+    border-width: 0px;
+    border-radius: 30px;
+    padding: 10px 30px;
+    background-color: pink;
+    font-size: 24px;
+}
+
+#grid-btn:hover {
+    color: rgb(69, 69, 69);
+    background-color: rgb(147, 255, 255);
 }
