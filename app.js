@@ -27,10 +27,16 @@ function drawGrid(squareNumber) {
             square.setAttribute("style", "flex: 1;");
             square.setAttribute("class", "square");
             square.addEventListener("mouseenter", () => {
-                square.style.backgroundColor = "pink";
+                square.style.backgroundColor = `rgb(${getRandomRGBvalue()}, ${getRandomRGBvalue()}, ${getRandomRGBvalue()})`;
               });
             row.appendChild(square);
         }
         container.appendChild(row);
     }
 }
+
+
+function getRandomRGBvalue() {
+    return Math.floor(Math.random() * 256);
+  }
+  
